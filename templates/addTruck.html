@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% include  'nav.html' %}
+</head>
+<body>
+    {% if foodTruckAdded %}
+        <h1 style="text-align: center; color: green">Food Truck Successfully added!</h1>
+    {% endif %}
+    <form action="{{ url_for('add_new_food_truck') }}" method="post">
+        <label for="locationID">Enter Food Truck location ID:</label><input type="search" name="locationID" id="locationID" required></input>
+        <label for="name">Enter Food Truck name:</label><input type="search" name="name" id="name" required></input>
+        <label for="address">Enter Food Truck address:</label><input type="search" name="address" id="address" required></input>
+        <label for="block">Enter Food Truck block:</label><input type="search" name="block" id="block" required></input>
+        <label for="foodType">Enter Food Truck food type:</label><input type="search" name="foodType" id="foodType"></input>
+        <br><br><br>
+        <button type="submit">Add Food Truck!</button>
+    </form>
+</body>
+</html>

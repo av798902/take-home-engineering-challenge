@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% include  'nav.html' %}
+</head>
+<body>
+    <form action="{{ url_for('get_food_truck_by_location_id') }}" method="get">
+        <label for="locationID">Enter locationID of Food Truck to find:</label><input type="search" name="locationID" id="locationID" value="{{ locationID }}" required></input> 
+        <button type="submit">Search</button>
+    </form>
+
+    <br><br><br>
+    
+    {% if result_size > 0 %}
+    <section>
+        <table width="100%" border=1>
+            <colgroup>
+                <col width="15%"/>
+                <col width="20%"/>
+                <col width="25%"/>
+                <col width="15%"/>
+                <col width="25%"/>
+            </colgroup>
+            <tr>
+                <th><strong>Location ID</strong></th>
+                <th>Food Truck</th>
+                <th>Address</th>
+                <th>Block</th>
+                <th>Food Type</th>
+            </tr>
+            <tr>
+                <td>{{food_truck['locationid']}}</td>
+                <td>{{food_truck['applicant']}}</td>
+                <td>{{food_truck['address']}}</td>
+                <td>{{food_truck['block']}}</td>
+                <td>{{food_truck['food']}}</td>
+            </tr>
+        </table>
+    </section>
+    {% endif %}
+</body>
+</html>
